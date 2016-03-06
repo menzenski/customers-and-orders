@@ -1,0 +1,7 @@
+body {
+  overflow: hidden;
+}
+
+.delete {
+  color: rgb(255,0,0);
+}

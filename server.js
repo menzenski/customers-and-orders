@@ -84,6 +84,31 @@ app.get('/customers', function(request, response) {
     // response.json(500, { error: 'An error has occurred!' });
 });
 
+app.get('/orders', function(request, response) {
+    var orders = [];
+    for (var i = 0, len = customers.length; i < len; i++) {
+        if (customers[i].orders) {
+            for (var j = 0, oLen = customers[i].orders.length; j < oLen; j++) {
+                orders.push(customers[i].orders[j]);
+            }
+        }
+    }
+    response.json(orders);
+});
+
+app.delete('/customers/:id', function(request, response) {
+    var customerId = parseInt(request.params.id),
+        data = { status: true };
+    for (var i = 0, len = customers.length; i < len; i++) {
+        if (customers[i].id === customerId) {
+            customers.splice(i, 1);
+            data = { status: true };
+            break;
+        }
+    }
+    response.json(data);
+});
+
 app.listen(8080, function() {
     console.log("Express listening on port 8080.");
 });
