@@ -6,7 +6,13 @@
         $scope.customer = null;
 
         function init() {
-            $scope.customer = customersFactory.getCustomerById(customerId);
+            customersFactory.getCustomerById(customerId)
+                .success(function(customer) {
+                    $scope.customer = customer;
+                })
+                .error(function(data, status, headers, config) {
+                    // handle error
+                });
         }
 
         init();
