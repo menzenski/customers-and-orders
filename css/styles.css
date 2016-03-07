@@ -1,3 +1,7 @@
+header.container {
+  margin-top: 20px;
+}
+
 body {
   overflow: hidden;
 }
@@ -5,3 +9,4 @@ body {
 .delete {
   color: rgb(255,0,0);
 }
+

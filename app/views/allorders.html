@@ -24,7 +24,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="order in orders | filter:orderFilter | orderBy:'name'">
+                  <tr class="repeat-animation"
+                    ng-repeat="order in orders | filter:orderFilter | orderBy:'name'">
                   <td>{{ order.product }}</td>
                   <td>{{ order.total | currency }}</td>
                 </tr>
